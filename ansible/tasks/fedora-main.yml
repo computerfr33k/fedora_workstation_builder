@@ -41,15 +41,11 @@
       - include: update-system.yml
       - include: common-packages.yml
 
-      - name: Make sure local system has basic packages installed and up to date
-        dnf:
-          name: "{{ dnf_basic }}"
-          state: latest
-
       - name: Make sure local system has additional third-party packages present and up to date
         dnf:
           name: "{{ dnf_extras }}"
           state: latest
+        when: dnf_extras is defined
 
 ########### CONFIGURE PROFILES AND OTHER ODDITIES ABOUT THIS SYSTEM (basic_config) #
     - block:
