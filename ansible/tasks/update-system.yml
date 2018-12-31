@@ -1,0 +1,8 @@
+---
+- name: Make sure base-system packages are up to date
+  dnf:
+    name: "*"
+    state: latest
+    update_cache: yes
+  register: system_update
+  changed_when: false

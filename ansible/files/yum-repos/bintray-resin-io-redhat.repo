@@ -1,0 +1,7 @@
+#bintray--resin-io-redhat - packages by  from Bintray
+[bintray--resin-io-redhat]
+name=bintray--resin-io-redhat
+baseurl=https://resin-io.bintray.com/redhat
+gpgcheck=0
+repo_gpgcheck=0
+enabled=1

@@ -10,3 +10,6 @@
 
 # - bastions:
   # - {host_mask: 10.1.*.*, host_name: 8.8.10.10,   private_key: id_rsa,  user_name: ansible}
+
+- bastions:
+  - {host_mask: 192.168.20.*, host_name: misty.relevantwebsite.com, private_key: id_rsa, user_name: epfeiffer}
