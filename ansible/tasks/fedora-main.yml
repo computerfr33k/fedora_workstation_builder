@@ -47,6 +47,7 @@
           state: latest
         when: dnf_extras is defined
 
+      - include: sudoers.yml
       - include: cron.yml
 
 ########### CONFIGURE PROFILES AND OTHER ODDITIES ABOUT THIS SYSTEM (basic_config) #

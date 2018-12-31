@@ -1,0 +1,14 @@
+---
+- name: Add ansible-pull sudoer file
+  file:
+    path: /etc/sudoers.d/ansible_pull
+    state: touch
+    owner: root
+    group: root
+    mode: 0440
+
+- name: Allow ansible-pull with no password
+  lineinfile:
+    path: /etc/sudoers.d/ansible_pull
+    line: '{{ sys_user }} ALL=(ALL) NOPASSWD: /usr/bin/ansible-pull'
+    validate: '/usr/sbin/visudo -cf %s'
