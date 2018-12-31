@@ -1,0 +1,6 @@
+---
+# Default Variables For All Machines (can be overridden per host)
+sys_user: eric
+sys_user_email: "computerfreak@computerfr33k.com"
+git_nickname: computerfr33k
+default_identity_key_file: id_rsa

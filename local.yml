@@ -6,6 +6,7 @@
 ####### DEFINING VARIABLES AND SUCH ################################################
   vars_files:
     - vars/ssh-tunneling.yml
+    - vars/common.yml
 
   pre_tasks:
     # Certainly we can use these somewhere
