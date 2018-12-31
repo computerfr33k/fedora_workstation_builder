@@ -37,9 +37,9 @@
 
 ########### INITIAL PACKAGE UPDATES AND INSTALLS (basic_updates) ###################
     - block:
-      - include: repos.yml
-      - include: update-system.yml
-      - include: common-packages.yml
+      - include: tasks/repos.yml
+      - include: tasks/update-system.yml
+      - include: tasks/common-packages.yml
 
       - name: Make sure local system has additional third-party packages present and up to date
         dnf:
@@ -47,8 +47,8 @@
           state: latest
         when: dnf_extras is defined
 
-      - include: sudoers.yml
-      - include: cron.yml
+      - include: tasks/sudoers.yml
+      - include: tasks/cron.yml
 
 ########### CONFIGURE PROFILES AND OTHER ODDITIES ABOUT THIS SYSTEM (basic_config) #
     - block:
