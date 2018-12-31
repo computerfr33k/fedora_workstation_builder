@@ -9,12 +9,4 @@
         os_name: "{{ ansible_distribution }}"
         os_ver: "{{ ansible_distribution_major_version }}"
   tasks:
-    - stat: path=vars/hosts/{{ ansible_hostname }}.yml
-      register: host_vars_file
-
-    - name: Include Host specific vars (if exists)
-      include_vars:
-        file: hosts/{{ ansible_hostname }}.yml
-      when: host_vars_file.stat.exists
-
-    - debug: var=sys_user
+    
