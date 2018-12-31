@@ -1,0 +1,10 @@
+---
+# Defining a bootstrap
+sys_user: eric
+public_key_value: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDpcpOmrLg/IAX+pH/Qxf6+23qjEW+cOGC786sy6beyKTuGu5H/33d1CWVJb1ADuTdOvrLVH9oyU9eoiFNI3crpmvdQyBae+ErHwaS7hi4YyZTAlhVr/p2m4d5pUejtWq00+7+AcoM7EqID4i05FrlYkzDWh5OsA2KkjfeQH2QhGTPF6M2Ko0JtyS+63UUceWhBWX3EvNBkTn2sjcQjEpHEOneFgn7iRah1Ssk3nJdcEqcFdTqXktWIg+Rwnz9cvnD9uHv2+x4eJ49UB4fGUOoOjXMNcgqUM+irmbmmXxJNlpxwMdQydn02TVp2SSeCz6Odlb6JU+xr7h8NPlofasNV eric@eric-desktop"
+sys_hostname: "eric-desktop"
+sys_user_email: "computerfreak@computerfr33k.com"
+git_nickname: computerfr33k
+default_identity_key_file: id_rsa
+
+# dnf_extras:
