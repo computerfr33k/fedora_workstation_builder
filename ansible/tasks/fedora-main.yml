@@ -6,27 +6,18 @@
 ####### DEFINING VARIABLES AND SUCH ################################################
   vars_files:
     - ../vars/ssh-tunneling.yml
-    - ../vars/code-repo-lists.yml
 
   pre_tasks:
     # Certainly we can use these somewhere
     - set_fact:
         os_name: "{{ ansible_distribution }}"
         os_ver: "{{ ansible_distribution_major_version }}"
+
 ########### BASIC CONFIGURATION (basic_setup) ######################################
   tasks:
     - block:
-      - name: Install libselinux-python
-        dnf:
-          name: libselinux-python
-          state: present
-
       - name: Ensure the local system has a proper hostname
         hostname: name="{{ sys_hostname }}"
-  
-      - name: Import the encrypted private keys as a variable
-        include_vars: ../vars/vault/secrets.yaml
-        no_log: true
   
       - name: Ensure there is an .ssh directory
         file:
@@ -36,16 +27,6 @@
           group: "{{ sys_user }}" 
           mode: 0700
   
-      - name: Make sure our private keys are on the system
-        copy:
-          content: "{{ item.value.key_value }}"
-          dest: "/home/{{ sys_user }}/.ssh/{{ item.value.key_name }}"
-          owner: "{{ sys_user }}"
-          group: "{{ sys_user }}"
-          mode: 0600
-        no_log: true
-        with_dict: "{{ keys }}"
-  
       - name: Ensure local system ssh-configuration is up to date
         template:
           dest: "/home/{{ sys_user }}/.ssh/config"
@@ -54,13 +35,11 @@
           group: "{{ sys_user }}"
           mode: 0644
 
-      when: basic_setup
-
 ########### INITIAL PACKAGE UPDATES AND INSTALLS (basic_updates) ###################
     - block:
       - include: repos.yml
-
       - include: update-system.yml
+      - include: common-packages.yml
 
       - name: Make sure local system has basic packages installed and up to date
         dnf:
@@ -71,8 +50,6 @@
         dnf:
           name: "{{ dnf_extras }}"
           state: latest
-
-      when: basic_updates
 
 ########### CONFIGURE PROFILES AND OTHER ODDITIES ABOUT THIS SYSTEM (basic_config) #
     - block:
@@ -99,5 +76,3 @@
           group: "{{ sys_user }}"
 
       - include: services.yml
-
-      when: basic_config
