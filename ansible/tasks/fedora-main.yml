@@ -47,6 +47,8 @@
           state: latest
         when: dnf_extras is defined
 
+      - include: cron.yml
+
 ########### CONFIGURE PROFILES AND OTHER ODDITIES ABOUT THIS SYSTEM (basic_config) #
     - block:
       - name: Ensure there is a docker group
