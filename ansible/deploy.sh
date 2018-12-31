@@ -8,7 +8,8 @@ if rpm -q ansible
 then
     echo "Ansible already installed"
 else
-    sudo dnf install ansible
+    sudo dnf install -y ansible git
+    APULL="$(which ansible-pull)"
 fi
 
 if [ ! -f $HOME/.ansible.cfg ]; then

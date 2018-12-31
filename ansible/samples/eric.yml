@@ -7,22 +7,4 @@ sys_user_email: "computerfreak@computerfr33k.com"
 git_nickname: computerfr33k
 default_identity_key_file: id_rsa
 
-dnf_basic:
-  - zip
-  - unzip
-  - ansible
-  - git
-  - bzip2
-  - acpid
-  - htop
-  - gcc
-  - tree
-  - yum-utils
-  - syncthing
-  - syncthing-gtk
-
-dnf_extras:
-  - google-chrome-stable
-  - VirtualBox-6.0
-  - code # VSCode
-  - yarn
+# dnf_extras:

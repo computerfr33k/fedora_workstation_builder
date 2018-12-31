@@ -16,7 +16,7 @@
       - kamoso
       - juk
       - dragon
-      - calligra-*
+      - "calligra-*"
       - mediawriter
       - krusader
       - kmag
@@ -40,3 +40,15 @@
       - insync
       - insync-dolphin
       - remmina
+      - zip
+      - unzip
+      - git
+      - bzip2
+      - acpid
+      - htop
+      - gcc
+      - tree
+      - syncthing
+      - syncthing-gtk
+      - VirtualBox-6.0
+      - yarn
