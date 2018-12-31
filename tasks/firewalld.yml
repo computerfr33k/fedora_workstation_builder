@@ -1,0 +1,21 @@
+---
+- name: Enable FirewallD
+  systemd:
+    enabled: yes
+    name: firewalld
+    state: started
+
+- name: Enable SSH Ports
+  firewalld:
+    service: ssh
+    permanent: yes
+    state: enabled
+
+- name: Enable Other Services
+  firewalld:
+    service: "{{ item }}"
+    permanent: yes
+    state: enabled
+  with_items:
+    - kde-connect
+    - syncthing

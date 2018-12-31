@@ -48,6 +48,7 @@
       - include: tasks/repos.yml
       - include: tasks/update-system.yml
       - include: tasks/common-packages.yml
+      # - include: tasks/snap.yml
 
       - name: Make sure local system has additional third-party packages present and up to date
         dnf:
@@ -57,29 +58,18 @@
 
       - include: tasks/sudoers.yml
       - include: tasks/cron.yml
+      - include: tasks/sysctl.yml
+      - include: tasks/users.yml
+      - include: tasks/services.yml
+      - include: tasks/firewalld.yml
+      - include: tasks/timezone.yml
+      # - include: tasks/nsswitch.yml
 
 ########### CONFIGURE PROFILES AND OTHER ODDITIES ABOUT THIS SYSTEM (basic_config) #
     - block:
-      - name: Ensure there is a docker group
-        group:
-          name: docker
-
-      - name: Ensure there is a vboxusers group
-        group:
-          name: vboxusers
-      
-      - name: Ensure the system user belongs to the docker, vboxusers and wheel groups
-        user:
-          name: "{{ sys_user }}"
-          groups: docker,wheel,vboxusers
-          append: yes
-          state: present
-
       - name: Make sure the Git profile is up to date
         template:
           dest: "/home/{{ sys_user }}/.gitconfig"
           src: templates/gitconfig.j2
           owner: "{{ sys_user }}"
           group: "{{ sys_user }}"
-
-      - include: tasks/services.yml
