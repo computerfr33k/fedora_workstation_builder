@@ -6,3 +6,44 @@
     key: https://github.com/{{item}}.keys
   with_items:
     - computerfr33k
+
+- name: Ensure there is an .ssh directory
+  file:
+    path: "/home/{{ sys_user }}/.ssh"
+    state: directory
+    owner: "{{ sys_user }}"
+    group: "{{ sys_user }}"
+    mode: 0700
+  
+- name: Ensure local system ssh-configuration is up to date
+  template:
+    dest: "/home/{{ sys_user }}/.ssh/config"
+    src: templates/ssh-config.j2
+    owner: "{{ sys_user }}"
+    group: "{{ sys_user }}"
+    mode: 0644
+
+- name: Fixing SSH Key Permissions
+  become: yes
+  file:
+    path: "/home/{{ sys_user }}/.ssh"
+    recurse: yes
+    owner: "{{ sys_user }}"
+    group: "{{ sys_user }}"
+    mode: 0700
+
+- name: Fixing SSH Key Permissions
+  become: yes
+  file:
+    path: "/home/{{ sys_user }}/.ssh/{{ default_identity_key_file }}"
+    owner: "{{ sys_user }}"
+    group: "{{ sys_user }}"
+    mode: 0600
+
+- name: Fixing SSH Key Permissions
+  become: yes
+  file:
+    path: "/home/{{ sys_user }}/.ssh/{{ default_identity_key_file }}.pub"
+    owner: "{{  sys_user }}"
+    group: "{{ sys_user }}"
+    mode: 0600

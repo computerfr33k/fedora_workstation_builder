@@ -24,25 +24,6 @@
           file: hosts/{{ ansible_hostname }}.yml
         when: host_vars_file.stat.exists
 
-      - name: Ensure the local system has a proper hostname
-        hostname: name="{{ sys_hostname }}"
-  
-      - name: Ensure there is an .ssh directory
-        file:
-          path: "/home/{{ sys_user }}/.ssh"
-          state: directory
-          owner: "{{ sys_user }}"
-          group: "{{ sys_user }}" 
-          mode: 0700
-  
-      - name: Ensure local system ssh-configuration is up to date
-        template:
-          dest: "/home/{{ sys_user }}/.ssh/config"
-          src: templates/ssh-config.j2
-          owner: "{{ sys_user }}"
-          group: "{{ sys_user }}"
-          mode: 0644
-
 ########### INITIAL PACKAGE UPDATES AND INSTALLS (basic_updates) ###################
     - block:
       - include: tasks/repos.yml
