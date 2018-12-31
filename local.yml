@@ -5,7 +5,7 @@
 
 ####### DEFINING VARIABLES AND SUCH ################################################
   vars_files:
-    - ../vars/ssh-tunneling.yml
+    - vars/ssh-tunneling.yml
 
   pre_tasks:
     # Certainly we can use these somewhere
@@ -30,7 +30,7 @@
       - name: Ensure local system ssh-configuration is up to date
         template:
           dest: "/home/{{ sys_user }}/.ssh/config"
-          src: ../templates/ssh-config.j2
+          src: templates/ssh-config.j2
           owner: "{{ sys_user }}"
           group: "{{ sys_user }}"
           mode: 0644
@@ -70,7 +70,7 @@
       - name: Make sure the Git profile is up to date
         template:
           dest: "/home/{{ sys_user }}/.gitconfig"
-          src: ../templates/gitconfig.j2
+          src: templates/gitconfig.j2
           owner: "{{ sys_user }}"
           group: "{{ sys_user }}"
 

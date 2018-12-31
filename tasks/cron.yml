@@ -1,3 +1,3 @@
 ---
 - name: Install Cron Jobs
-  cron: user="{{ sys_user }}" name="Ansible Provision" minute="*/10" job="sudo /usr/bin/ansible-pull -o -U https://github.com/computerfr33k/fedora_workstation_builder.git tasks/fedora-main.yml --extra-vars @samples/eric.yml > /dev/null"
+  cron: user="{{ sys_user }}" name="Ansible Provision" minute="*/10" job="sudo /usr/bin/ansible-pull -o -U https://github.com/computerfr33k/fedora_workstation_builder.git > /dev/null"
