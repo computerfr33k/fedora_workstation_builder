@@ -45,12 +45,3 @@
       - include: tasks/firewalld.yml
       - include: tasks/timezone.yml
       # - include: tasks/nsswitch.yml
-
-########### CONFIGURE PROFILES AND OTHER ODDITIES ABOUT THIS SYSTEM (basic_config) #
-    - block:
-      - name: Make sure the Git profile is up to date
-        template:
-          dest: "/home/{{ sys_user }}/.gitconfig"
-          src: templates/gitconfig.j2
-          owner: "{{ sys_user }}"
-          group: "{{ sys_user }}"
