@@ -47,6 +47,7 @@
       - htop
       - gcc
       - tree
+      - rcm
       - syncthing
       - syncthing-gtk
       - VirtualBox-6.0
