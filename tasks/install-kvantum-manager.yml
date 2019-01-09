@@ -1,0 +1,36 @@
+---
+- name: Install Kvantum Theme Manager Dependencies
+  dnf:
+    name: '{{ install_packages }}'
+    state: latest
+  vars:
+    install_packages:
+      - gcc-c++
+      - libX11-devel
+      - libXext-devel
+      - qt5-qtx11extras-devel
+      - qt5-qtbase-devel
+      - qt5-qtsvg-devel
+      - qt5-qttools-devel
+      - kf5-kwindowsystem-devel
+  when: installed_kvantum_version != "V0.10.8"
+
+- name: Download Kvantum Git Repository Release
+  git:
+    repo: 'https://github.com/tsujan/Kvantum.git'
+    dest: /tmp/kvantum-build
+    version: V0.10.8
+  when: installed_kvantum_version != "V0.10.8"
+
+- name: Build & Install Kvantum Theme Manager
+  shell: qmake-qt5 && make && make install
+  args:
+    chdir: /tmp/kvantum-build/Kvantum
+    creates: kvantummanager/kvantummanager
+  when: installed_kvantum_version != "V0.10.8"
+
+- name: Cleanup Kvantum Build
+  file:
+    state: absent
+    path: /tmp/kvantum-build/
+  when: installed_kvantum_version != "V0.10.8"

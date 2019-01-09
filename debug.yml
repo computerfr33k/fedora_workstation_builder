@@ -8,4 +8,6 @@
         os_name: "{{ ansible_distribution }}"
         os_ver: "{{ ansible_distribution_major_version }}"
   tasks:
-    - debug: var=sys_user
+    - name: Get Current Kvantum Manager Version
+      shell: kvantummanager --version
+      register: kvantum_sys_version

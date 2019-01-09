@@ -52,3 +52,18 @@
       - VirtualBox-6.0
       - yarn
       - vim
+
+- name: Cleanup Kvantum Build
+  file:
+    state: absent
+    path: /tmp/kvantum-build/
+
+- name: Get Current Kvantum Manager Version
+  shell: kvantummanager --version
+  register: kvantum_sys_version
+
+- set_fact:
+    installed_kvantum_version: "V{{ kvantum_sys_version.stdout | regex_replace('^Kvantum Manager (.*)$', '\\1') }}"
+
+- include: install-kvantum-manager.yml
+  when: installed_kvantum_version != "V0.10.8"
