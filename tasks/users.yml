@@ -44,3 +44,8 @@
     src: templates/gitconfig.j2
     owner: "{{ sys_user }}"
     group: "{{ sys_user }}"
+
+- block:
+  - include: kde-configs.yml
+  become: yes
+  become_user: "{{ sys_user }}"
