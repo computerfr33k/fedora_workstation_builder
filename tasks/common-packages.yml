@@ -47,6 +47,7 @@
       - acpid
       - htop
       - gcc
+      - mozilla-fira-mono-fonts
       - tree
       - rcm
       - syncthing
