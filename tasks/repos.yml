@@ -1,4 +1,11 @@
 ---
+- name: Remove Old RPM Repos
+  file:
+    path: "/etc/yum.repos.d/{{ item }}"
+    state: absent
+  with_items:
+    - "bintray-resin-io-redhat.repo"
+
 - name: Ensure extra RPM repos are up to date
   copy:
     src: "{{ item }}"
@@ -7,3 +14,11 @@
     group: root
     mode: 0644
   with_fileglob: files/yum-repos/*.repo
+
+- name: Enable Copr Repos
+  command: dnf copr enable -y "{{ item }}"
+  args:
+    warn: no
+  with_items:
+    - "dirkdavidis/papirus-icon-theme"
+    - "tcg/themes" # Materia GNOME Theme

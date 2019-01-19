@@ -48,11 +48,14 @@
       - acpid
       - htop
       - gcc
+      - materia-theme
       - mozilla-fira-mono-fonts
       - tree
       - rcm
+      - rsync
       - syncthing
       - syncthing-gtk
+      - timeshift
       - VirtualBox-6.0
       - yarn
       - vim
