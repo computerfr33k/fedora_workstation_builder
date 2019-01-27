@@ -37,6 +37,7 @@
       - balena-etcher-electron
       - hplip-gui
       - code
+      - ffmpegthumbs
       - fish
       - google-roboto-fonts
       - insync
