@@ -1,0 +1,33 @@
+---
+- name: Install snapd
+  dnf:
+    name: snapd
+    state: latest
+  register: snapd
+
+- name: Symlink snap to /snap
+  file:
+    src: "/var/lib/snapd/snap"
+    dest: "/snap"
+    state: link
+
+- name: Enable & Start snapd
+  systemd:
+    enabled: yes
+    name: snapd
+    state: started
+
+- name: sleep for 60 seconds and continue installing snap packages
+  wait_for: timeout=60
+  delegate_to: localhost
+  when: snapd is changed
+
+- name: Install Snap Packages
+  command: 'snap install "{{ item }}"'
+  with_items:
+    - mailspring
+
+# - name: Install Classic Snap Packages
+#   command: 'snap install "{{ item }}" --classic'
+#   with_items:
+#     - restic

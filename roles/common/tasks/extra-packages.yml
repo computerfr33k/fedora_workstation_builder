@@ -1,0 +1,6 @@
+---
+- name: Make sure local system has additional third-party packages present and up to date
+  dnf:
+    name: "{{ dnf_extras }}"
+    state: latest
+  when: dnf_extras is defined

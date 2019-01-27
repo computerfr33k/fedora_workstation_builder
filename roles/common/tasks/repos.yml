@@ -1,10 +1,10 @@
 ---
-- name: Remove Old RPM Repos
+- name: Remove Old Repos
   file:
     path: "/etc/yum.repos.d/{{ item }}"
     state: absent
   with_items:
-    - "bintray-resin-io-redhat.repo"
+    - bintray-resin-io-redhat.repo
 
 - name: Ensure extra RPM repos are up to date
   copy:
