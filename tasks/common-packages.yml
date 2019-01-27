@@ -34,11 +34,11 @@
     install_packages:
       - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ os_ver }}.noarch.rpm
       - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ os_ver }}.noarch.rpm
-      - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
       - balena-etcher-electron
       - hplip-gui
       - code
       - fish
+      - google-roboto-fonts
       - insync
       - remmina
       - zip
@@ -50,6 +50,9 @@
       - gcc
       - materia-theme
       - mozilla-fira-mono-fonts
+      - papirus-icon-theme
+      - libreoffice-icon-theme-papirus
+      - powerline powerline-fonts
       - tree
       - rcm
       - rsync
