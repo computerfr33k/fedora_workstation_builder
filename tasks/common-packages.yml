@@ -51,6 +51,7 @@
       - materia-theme
       - mozilla-fira-mono-fonts
       - papirus-icon-theme
+      - restic
       - libreoffice-icon-theme-papirus
       - powerline
       - powerline-fonts
