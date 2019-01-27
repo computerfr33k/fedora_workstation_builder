@@ -67,5 +67,6 @@
     shell: rcup
     when: rcm_repo.changed
   become: yes
+  become_method: su
   become_user: "{{ sys_user }}"
   
