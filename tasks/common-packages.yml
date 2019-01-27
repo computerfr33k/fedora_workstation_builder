@@ -52,7 +52,8 @@
       - mozilla-fira-mono-fonts
       - papirus-icon-theme
       - libreoffice-icon-theme-papirus
-      - powerline powerline-fonts
+      - powerline
+      - powerline-fonts
       - tree
       - rcm
       - rsync
