@@ -1,7 +1,7 @@
 ---
 - name: Set Konsole Default Profile
   ini_file:
-    path: "{{ '~' | expanduser }}/.config/konsolerc"
+    path: "/home/{{ sys_user }}/.config/konsolerc"
     section: Desktop Entry
     option: DefaultProfile
     value: Profile 1.profile
