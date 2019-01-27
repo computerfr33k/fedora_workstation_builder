@@ -35,6 +35,7 @@
       - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ os_ver }}.noarch.rpm
       - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ os_ver }}.noarch.rpm
       - balena-etcher-electron
+      - docker-ce
       - hplip-gui
       - code
       - ffmpegthumbs

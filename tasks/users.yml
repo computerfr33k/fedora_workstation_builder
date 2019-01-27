@@ -52,6 +52,13 @@
     owner: "{{ sys_user }}"
     group: "{{ sys_user }}"
 
+- name: Add User to Docker Group & Set Fish as default shell.
+  user:
+    name: "{{ sys_user }}"
+    shell: /bin/fish
+    groups: docker
+    append: yes
+
 - block:
   - include: kde-configs.yml
 
