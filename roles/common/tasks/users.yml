@@ -52,10 +52,10 @@
     owner: "{{ sys_user }}"
     group: "{{ sys_user }}"
 
-- name: Add User to Docker Group & Set Fish as default shell.
+- name: Add User to Docker Group
   user:
     name: "{{ sys_user }}"
-    shell: /bin/fish
+    shell: /bin/bash
     groups: docker
     append: yes
 

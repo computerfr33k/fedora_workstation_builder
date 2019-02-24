@@ -59,6 +59,7 @@
       - powerline
       - powerline-fonts
       - tree
+      - rclone
       - rcm
       - rsync
       - syncthing
