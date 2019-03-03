@@ -26,7 +26,7 @@
   dnf:
     autoremove: yes
 
-- name: Install Common Packages (for all machines)
+- name: Install RPM Fusion
   dnf:
     name: '{{ install_packages }}'
     state: latest
@@ -34,41 +34,49 @@
     install_packages:
       - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ os_ver }}.noarch.rpm
       - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ os_ver }}.noarch.rpm
+
+- name: Install Common Packages (for all machines)
+  dnf:
+    name: '{{ install_packages }}'
+    state: latest
+  vars:
+    install_packages:
+      - acpid
       - balena-etcher-electron
-      - docker-ce
-      - hplip-gui
+      - bzip2
       - code
+      - docker-ce
       - ffmpegthumbs
       - fish
-      - google-roboto-fonts
-      - insync
-      - mediainfo-qt
-      - remmina
-      - zip
-      - unzip
-      - git
-      - bzip2
-      - acpid
-      - htop
       - gcc
+      - git
+      - google-roboto-fonts
+      - hplip-gui
+      - htop
+      - insync
+      - keepassxc
+      - libreoffice-icon-theme-papirus
       - materia-theme
+      - mediainfo-qt
       - mozilla-fira-mono-fonts
       - papirus-icon-theme
-      - restic
-      - libreoffice-icon-theme-papirus
       - powerline
       - powerline-fonts
-      - tree
       - rclone
       - rcm
+      - remmina
+      - restic
       - rsync
       - syncthing
       - syncthing-gtk
       - timeshift
+      - tree
+      - unzip
+      - vim
       - VirtualBox-6.0
       - yarn
       - yubioath-desktop
-      - vim
+      - zip
 
 - name: Cleanup Kvantum Build
   file:
