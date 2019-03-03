@@ -62,21 +62,21 @@
 - block:
   - include: kde-configs.yml
 
-  - name: Deploy Dotfiles
-    git:
-        repo: 'git@gitlab.com:computerfr33k/dotfiles.git'
-        dest: "{{ '~' | expanduser }}/.dotfiles"
-        key_file: "{{ '~' | expanduser }}/.ssh/{{ default_identity_key_file }}"
-        accept_hostkey: yes
-    register: rcm_repo
-    become: yes
-    become_method: su
-    become_user: "{{ sys_user }}"
+#   - name: Deploy Dotfiles
+#     git:
+#         repo: 'git@gitlab.com:computerfr33k/dotfiles.git'
+#         dest: "{{ '~' | expanduser }}/.dotfiles"
+#         key_file: "{{ '~' | expanduser }}/.ssh/{{ default_identity_key_file }}"
+#         accept_hostkey: yes
+#     register: rcm_repo
+#     become: yes
+#     become_method: su
+#     become_user: "{{ sys_user }}"
 
-  - name: update and install dotfiles managed by rcm
-    shell: rcup
-    when: rcm_repo.changed
-  become: yes
-  become_method: su
-  become_user: "{{ sys_user }}"
+#   - name: update and install dotfiles managed by rcm
+#     shell: rcup
+#     when: rcm_repo.changed
+#   become: yes
+#   become_method: su
+#   become_user: "{{ sys_user }}"
   
