@@ -67,6 +67,7 @@
       - timeshift
       - VirtualBox-6.0
       - yarn
+      - yubioath-desktop
       - vim
 
 - name: Cleanup Kvantum Build
