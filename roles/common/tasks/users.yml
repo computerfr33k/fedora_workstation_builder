@@ -69,6 +69,9 @@
         key_file: "{{ '~' | expanduser }}/.ssh/{{ default_identity_key_file }}"
         accept_hostkey: yes
     register: rcm_repo
+    become: yes
+    become_method: su
+    become_user: "{{ sys_user }}"
 
   - name: update and install dotfiles managed by rcm
     shell: rcup
