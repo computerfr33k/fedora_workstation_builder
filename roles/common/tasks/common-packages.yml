@@ -67,6 +67,7 @@
       - remmina
       - restic
       - rsync
+      - seahorse
       - syncthing
       - syncthing-gtk
       - timeshift
