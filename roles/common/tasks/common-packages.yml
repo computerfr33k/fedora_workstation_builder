@@ -92,4 +92,4 @@
     installed_kvantum_version: "V{{ kvantum_sys_version.stdout | regex_replace('^Kvantum Manager (.*)$', '\\1') }}"
 
 - include: install-kvantum-manager.yml
-  when: installed_kvantum_version != "V0.10.8"
+  when: installed_kvantum_version != "V0.11.0"
